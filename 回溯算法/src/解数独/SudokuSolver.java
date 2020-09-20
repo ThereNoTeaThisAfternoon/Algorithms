@@ -1,10 +1,5 @@
 package 解数独;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-
 /**
  * FileName: SudokuSolver.java
  * 类的详细说明
