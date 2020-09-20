@@ -10,13 +10,14 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * FileName:
+ * FileName: SumOfLeftLeaves.java
  * 类的详细说明
  * Find the sum of left leaves in a given binary tree
  *
  * @author &#x8c2f;&#x535a;
  * @version 1.00
  * @date 2020.9.20 - 下午 8:01
+ * @label Depth-firstSearch BreadthFirstSearch
  */
 public class SumOfLeftLeaves {
     public static void main(String[] args) throws IOException {
