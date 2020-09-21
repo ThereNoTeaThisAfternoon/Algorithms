@@ -17,6 +17,7 @@ import java.util.List;
  * @author &#x8c2f;&#x535a;
  * @version 1.00
  * @date 2020.9.21 - 上午 9:12
+ * @label Array Backtracking BitManipulation
  */
 public class Subsets {
     public static void main(String[] args) throws IOException {
@@ -73,5 +74,27 @@ class SolutionCopy {
         dfs(cur + 1, nums);
         t.remove(t.size() - 1);
         dfs(cur + 1, nums);
+    }
+}
+
+/**
+ * BitManipulation
+ */
+class SolutionCopy2 {
+    List<Integer> t = new ArrayList<>();
+    List<List<Integer>> ans = new ArrayList<>();
+
+    public List<List<Integer>> subsets(int[] nums) {
+        int n = nums.length;
+        for (int mask = 0; mask < (1 << n); ++mask) {
+            t.clear();
+            for (int i = 0; i < n; ++i) {
+                if ((mask & (1 << i)) != 0) {
+                    t.add(nums[i]);
+                }
+            }
+            ans.add(new ArrayList<>(t));
+        }
+        return ans;
     }
 }
