@@ -105,8 +105,8 @@ public class PublicMethod {
     //BinaryTree -> String 先序遍历
     public String integerTreeString(TreeNode root) {
         if (root == null)
-            return "null, ";
-        return root.val + ", " + integerTreeString(root.left) + integerTreeString(root.right);
+            return "";
+        return root.val + " " + integerTreeString(root.left) + integerTreeString(root.right);
     }
 
     //BinaryTree -> String 中序遍历
