@@ -1,6 +1,5 @@
 package Tree公共方法;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -45,6 +44,45 @@ public class PublicMethod {
                 int rightNumber = Integer.parseInt(item);
                 node.right = new TreeNode(rightNumber);
                 nodeQueue.add(node.right);
+            }
+        }
+        return root;
+    }
+
+    /**
+     * 重载了该方法，为每个节点增添一个右侧节点
+     */
+    public Node stringToBinaryTreeNode(String input, Node empty) {
+        String[] parts = stringToStringArray(input);
+        if (parts == null) {
+            return null;
+        }
+        String item = parts[0];
+        Node root = new Node(Integer.parseInt(item));
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        int index = 1;
+        while (!queue.isEmpty()) {
+            Node node = queue.remove();
+            //添加左节点
+            if (index == parts.length) {
+                break;
+            }
+            item = parts[index++];
+            if (!"null".equals(item)) {
+                Node left = new Node(Integer.parseInt(item));
+                node.left = left;
+                queue.add(left);
+            }
+            //添加右节点
+            if (index == parts.length) {
+                break;
+            }
+            item = parts[index++];
+            if (!"null".equals(item)) {
+                Node right = new Node(Integer.parseInt(item));
+                node.right = right;
+                queue.add(right);
             }
         }
         return root;
