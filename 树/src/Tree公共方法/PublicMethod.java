@@ -114,7 +114,9 @@ public class PublicMethod {
         return output;
     }
 
-    //BinaryTree -> String(层序遍历)
+    /**
+     * BinaryTree -> String(层序遍历)
+     */
     public String integerTreeToString(TreeNode root) {
         StringBuilder sB = new StringBuilder();
         List<TreeNode> list = new LinkedList<>();
@@ -124,7 +126,7 @@ public class PublicMethod {
             if (node != null)
                 sB.append(node.val).append(", ");
             else {
-                sB.append("null, ");
+                sB.append(", ");
                 continue;
             }
             if (node.left != null)
@@ -140,14 +142,18 @@ public class PublicMethod {
         return "[" + sB.toString().substring(0, sB.length() - 2) + "]";
     }
 
-    //BinaryTree -> String 先序遍历
+    /**
+     * BinaryTree -> String 先序遍历
+     */
     public String integerTreeString(TreeNode root) {
         if (root == null)
             return "";
         return root.val + " " + integerTreeString(root.left) + integerTreeString(root.right);
     }
 
-    //BinaryTree -> String 中序遍历
+    /**
+     * BinaryTree -> String 中序遍历
+     */
     public String integerTreeToInorderString(TreeNode root) {
         if (root == null) {
             return "";
