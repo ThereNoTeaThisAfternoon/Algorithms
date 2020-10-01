@@ -35,7 +35,7 @@ public class InsertIntoABST {
 }
 
 /**
- * 递归
+ * Recursive
  */
 class Solution {
     public TreeNode insertIntoBST(TreeNode root, int val) {
