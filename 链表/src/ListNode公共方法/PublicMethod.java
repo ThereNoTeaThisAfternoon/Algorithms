@@ -73,4 +73,30 @@ public class PublicMethod {
         }
         return "[" + result.substring(0, result.length() - 2) + "]";
     }
+
+    /**
+     * 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。
+     * 如果 pos 是 -1，则在该链表中没有环。
+     */
+    public static void createCycle(ListNode head, int pos) {
+        if (head == null || pos == -1) {
+            return;
+        }
+        //获取最后一个节点，以及链表长度
+        ListNode lastNode = head;
+        int len = 1;
+        while (lastNode.next != null) {
+            len++;
+            lastNode = lastNode.next;
+        }
+        //找到pos指定节点
+        ListNode curNode = head;
+        pos = pos % len;
+        while (pos > 0) {
+            curNode = curNode.next;
+            pos--;
+        }
+        //让最后一个节点指向pos指定节点
+        lastNode.next = curNode;
+    }
 }

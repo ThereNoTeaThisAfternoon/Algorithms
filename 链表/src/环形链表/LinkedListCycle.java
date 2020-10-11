@@ -12,6 +12,8 @@ import java.io.InputStreamReader;
  * 类的详细说明
  * Given head, the head of a linked list, determine if the linked list has a cycle in it.
  * Return true if there is a cycle in the linked list. Otherwise, return false.
+ * 为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。
+ * 如果 pos 是 -1，则在该链表中没有环。
  *
  * @author &#x8c2f;&#x535a;
  * @version 1.00
@@ -22,11 +24,14 @@ public class LinkedListCycle {
     public static void main(String[] args) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String line;
-        System.out.println("请输入一个链表：[3,2,0,-4]" );
+        System.out.println("请输入一个链表：[3,2,0,-4]");
         while ((line = in.readLine()) != null) {
             ListNode head = PublicMethod.stringToListNode(line);
+            System.out.println("请输入最后一个链表指向的节点pos：1");
+            int pos = Integer.parseInt(in.readLine());
+            PublicMethod.createCycle(head, pos);
             boolean result = new Solution().hasCycle(head);
-            System.out.println("该链表：" + (result ? "是" : "不是" ) + "环形链表" );
+            System.out.println("该链表：" + (result ? "是" : "不是") + "环形链表");
         }
     }
 }
@@ -48,7 +53,7 @@ class Solution {
     }
 }
 
-class SolutionC {
+class SolutionCopy {
     public boolean hasCycle(ListNode head) {
         //不存在链表，或仅有一个链表不成环
         if (head == null || head.next == null) {
