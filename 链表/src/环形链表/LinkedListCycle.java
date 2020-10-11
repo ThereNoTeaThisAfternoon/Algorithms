@@ -16,7 +16,7 @@ import java.io.InputStreamReader;
  * 如果 pos 是 -1，则在该链表中没有环。
  *
  * @author &#x8c2f;&#x535a;
- * @version 1.00
+ * @version 1.00 1.01
  * @date 2020.10.10 - 下午 2:18
  * @label LinkedList TwoPointers
  */
