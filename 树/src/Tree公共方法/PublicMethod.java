@@ -16,7 +16,9 @@ public class PublicMethod {
         return "[" + result.substring(0, result.length() - 2) + "]";
     }
 
-    //String -> BinaryTree
+    /**
+     * String -> BinaryTree
+     */
     public TreeNode stringToBinaryTreeNode(String input) {
         String[] parts = stringToStringArray(input);
         if (parts == null)
