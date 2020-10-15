@@ -46,7 +46,12 @@ public class PublicMethod {
         return "[" + sB.toString().substring(0, sB.length() - 1) + "]";
     }
 
-    //Strings -> StringArray
+    /**
+     * Strings -> StringArray
+     *
+     * @param input ["bella","label","roller"]
+     * @return {"bella","label","roller"}
+     */
     public static String[] stringToStringArray(String input) {
         input = input.trim();
         input = input.substring(1, input.length() - 1);
