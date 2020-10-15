@@ -46,7 +46,9 @@ class Solution {
             int size = queue.size();
             while (size-- > 0) {
                 Node node = queue.remove();
-                node.next = queue.peek();
+                if (size > 0) {
+                    node.next = queue.peek();
+                }
                 if (node.left != null) {
                     queue.add(node.left);
                 }

@@ -52,7 +52,15 @@ public class PublicMethod {
     }
 
     /**
-     * 重载了该方法，为每个节点增添一个右侧节点
+     * 重载了该方法，为每个节点增添一个右侧节点属性
+     * struct Node {
+     *   int val;
+     *   Node *left;
+     *   Node *right;
+     *   Node *next;
+     * }
+     * @param input [1,2,3,4,5,6,7]
+     * @param empty null 标识该方法有三个节点属性
      */
     public Node stringToBinaryTreeNode(String input, Node empty) {
         String[] parts = stringToStringArray(input);
