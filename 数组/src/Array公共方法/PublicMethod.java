@@ -21,9 +21,9 @@ public class PublicMethod {
 
     //StringList -> String
     public String stringListToString(List<String> input) {
-        String output = "";
+        StringBuilder output = new StringBuilder();
         for (String string : input) {
-            output += string + ", ";
+            output.append(string).append(", ");
         }
         return "[" + output.substring(0, output.length() - 2) + "]";
     }
