@@ -45,7 +45,7 @@ class Solution {
 }
 
 /**
- * 使用两个指针分别指向位置 00 和 n-1n−1，每次比较两个指针对应的数，选择较大的那个逆序放入答案并移动指针。
+ * 使用两个指针分别指向位置 0 和 n-1，每次比较两个指针对应的数，选择较大的那个逆序放入答案并移动指针。
  */
 class SolutionCopy {
     public int[] sortedSquares(int[] A) {
