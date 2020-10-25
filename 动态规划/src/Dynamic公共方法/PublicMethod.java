@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 public class PublicMethod {
-    private static final Set<Character> CHARS = Set.of('0', '1');
+    private static final Set<Character> CHARS = Set.of('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
 
     //String -> IntegerArray
     public int[] stringToIntegerArray(String input) {
@@ -32,7 +32,7 @@ public class PublicMethod {
         int[][] out = new int[row][col];
         for (int i = 0; i < row; ++i) {
             for (int j = 0; j < col; ++j) {
-                out[i][j] = ans[i][j];
+                out[i][j] = ans[i][j] - '0';
             }
         }
         return out;
@@ -48,10 +48,11 @@ public class PublicMethod {
         int cols;
         int allNum = 0;
         for (int i = 0; i < input.length(); i++) {
-            if (']' == input.charAt(i))
+            if (']' == input.charAt(i)) {
                 rows++;
-            if (CHARS.contains(input.charAt(i)))
+            } else if (CHARS.contains(input.charAt(i))) {
                 allNum++;
+            }
         }
         cols = allNum / rows;
         char[][] output = new char[rows][cols];
@@ -59,7 +60,7 @@ public class PublicMethod {
         int index = 0;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                while (!CHARS.contains(input.charAt(index))) {
+                while (CHARS.contains(input.charAt(index))) {
                     index++;
                 }
                 output[i][j] = input.charAt(index++);

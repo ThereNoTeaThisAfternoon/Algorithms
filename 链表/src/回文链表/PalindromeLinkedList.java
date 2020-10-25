@@ -132,7 +132,9 @@ class SolutionCopy3 {
     ListNode temp;
 
     public boolean isPalindrome(ListNode head) {
-        if (head == null || head.next == null) return true;
+        if (head == null || head.next == null) {
+            return true;
+        }
         temp = head;
         return dfs(head);
     }
