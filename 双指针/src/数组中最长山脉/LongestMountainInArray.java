@@ -92,7 +92,7 @@ class SolutionCopy {
                     r++;
                 }
             }
-            // l走到到该山的山脚，继续去寻找下一座山
+            // l直接到该山的山脚，继续去寻找下一座山
             l = r;
         }
         return maxLen;
