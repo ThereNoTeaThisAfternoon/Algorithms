@@ -27,7 +27,7 @@ public class BinaryTreeInorderTraversal {
             TreeNode root = new PublicMethod().stringToBinaryTreeNode(line);
             List<Integer> result = new SolutionCopy().inorderTraversal(root);
             for (Integer i : result) {
-                System.out.printf(i + "\t");
+                System.out.print(i + "\t");
             }
         }
     }
