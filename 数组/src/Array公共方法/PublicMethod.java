@@ -27,5 +27,35 @@ public class PublicMethod {
         }
         return "[" + output.substring(0, output.length() - 2) + "]";
     }
+
+    /**
+     * String:"[[0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0]]" -> int[][]
+     */
+    public int[][] stringTo2DIntegerArray(String input) {
+        input = input.trim();
+        input = input.substring(1, input.length() - 1);
+        if (input.length() == 0) {
+            return new int[0][];
+        }
+        int n = 0;
+        for (char ch : input.toCharArray())
+            if (ch == ']')
+                n++;
+        int[][] out = new int[n][n];
+        int i = 0;
+        StringBuilder str = new StringBuilder();
+        for (int a = 0; a < n; a++) {
+            for (int b = 0; b < n; b++) {
+                while (i < input.length() && !Character.isDigit(input.charAt(i)))
+                    i++;
+                while (i < input.length() && Character.isDigit(input.charAt(i))) {
+                    str.append(input.charAt(i++));
+                }
+                out[a][b] = Integer.parseInt(str.toString());
+                str = new StringBuilder();
+            }
+        }
+        return out;
+    }
 }
 
