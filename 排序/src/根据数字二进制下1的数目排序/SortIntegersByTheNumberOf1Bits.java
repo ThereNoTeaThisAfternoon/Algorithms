@@ -5,7 +5,7 @@ import Sort公共方法.PublicMethod;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * FileName: SortIntegersByTheNumberOf1Bits.java
@@ -26,7 +26,7 @@ public class SortIntegersByTheNumberOf1Bits {
         System.out.println("请输入一个待排序的整型数组：[1024,512,256,128,64,32,16,8,4,2,1]");
         while ((line = in.readLine()) != null) {
             int[] arr = PublicMethod.stringToIntegerArray(line);
-            int[] result = new SolutionCopy().sortByBits(arr);
+            int[] result = new SolutionCopy2().sortByBits(arr);
             System.out.println(Arrays.toString(result));
         }
     }
@@ -48,7 +48,7 @@ class Solution {
 }
 
 class SolutionCopy {
-
+    // 将数组中的元素按照其二进制表示中数字 1 的数目升序排序
     public int[] sortByBits(int[] arr) {
         Integer[] nums = new Integer[arr.length];
         for (int i = 0; i < arr.length; i++) {
@@ -57,7 +57,7 @@ class SolutionCopy {
         Arrays.sort(nums, (num1, num2) -> {
             int bitCount1 = bitCount(num1);
             int bitCount2 = bitCount(num2);
-            // 相同按原数，不同按位数
+            // 相同按数值，不同按位数
             return bitCount1 == bitCount2 ? num1 - num2 : bitCount1 - bitCount2;
         });
         for (int i = 0; i < nums.length; i++) {
@@ -79,4 +79,31 @@ class SolutionCopy {
         }
         return cnt;
     }
+}
+
+/**
+ * bit[i] 为数字 i 二进制表示下数字 1 的个数，则可以列出递推式：
+ * bit[i] = bit[i>>1] + (i & 1)
+ */
+class SolutionCopy2 {
+
+    public int[] sortByBits(int[] arr) {
+        List<Integer> list = new ArrayList<>();
+        for (int i : arr) {
+            list.add(i);
+        }
+        int[] bit = new int[10001];
+        for (int i = 1; i < bit.length; i++) {
+            bit[i] = bit[i >> 1] + i & 1;
+        }
+        list.sort((o1, o2) -> {
+            // 相同按数值，不同按位数
+            return bit[o1] == bit[o2] ? o1 - o2 : bit[o1] - bit[o2];
+        });
+        for (int i = 0; i < list.size(); i++) {
+            arr[i] = list.get(i);
+        }
+        return arr;
+    }
+
 }
