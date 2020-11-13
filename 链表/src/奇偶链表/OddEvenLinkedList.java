@@ -32,6 +32,7 @@ public class OddEvenLinkedList {
     }
 }
 
+
 class Solution {
 
     public ListNode oddEvenList(ListNode head) {
@@ -56,7 +57,11 @@ class Solution {
         return head;
     }
 }
-
+/**
+ * 对于原始链表，每个节点都是奇数节点或偶数节点。
+ * 头节点是奇数节点，头节点的后一个节点是偶数节点，相邻节点的奇偶性不同。
+ * 因此可以将奇数节点和偶数节点分离成奇数链表和偶数链表，然后将偶数链表连接在奇数链表之后，合并后的链表即为结果链表。
+ */
 class SolutionCopy {
     public ListNode oddEvenList(ListNode head) {
         if (head == null) {
