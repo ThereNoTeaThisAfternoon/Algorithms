@@ -39,16 +39,41 @@ public class GasStation {
 }
 
 /**
- * 车子能开完全程的条件
- * 车从 i 能开到 i+1
- * 所有加油站的总油量 >= 车子总耗油量
+ * 把每一个站点作为起始站，尝试遍历环路一周
  */
 class Solution {
 
     public int canCompleteCircuit(int[] gas, int[] cost) {
+        int len = gas.length;
+        for (int i = 0; i < len; i++) {
+            int next = i;
+            int rest = gas[i] - cost[i];
+            while (rest >= 0) {
+                next++;
+                if (next == len) {
+                    next -= len;
+                }
+                if (next == i) {
+                    return i;
+                }
+                rest += (gas[next] - cost[next]);
+            }
+        }
+        return -1;
+    }
+}
+
+/**
+ * 车子能开完全程的条件
+ * 车从 i 能开到 i+1
+ * 所有加油站的总油量 >= 车子总耗油量
+ */
+class SolutionCopy {
+
+    public int canCompleteCircuit(int[] gas, int[] cost) {
         // rest表示油的数目和消耗数目之差
         // run表示剩余油量能否走到下一个加油站
-        // start代表出发的加油站
+        // start代表起始站
         int rest = 0, run = 0, start = 0;
         for (int i = 0; i < gas.length; i++) {
             run += (gas[i] - cost[i]);
