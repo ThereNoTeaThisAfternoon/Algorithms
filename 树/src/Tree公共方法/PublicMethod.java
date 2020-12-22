@@ -54,11 +54,12 @@ public class PublicMethod {
     /**
      * 重载了该方法，为每个节点增添一个右侧节点属性
      * struct Node {
-     *   int val;
-     *   Node *left;
-     *   Node *right;
-     *   Node *next;
+     * int val;
+     * Node *left;
+     * Node *right;
+     * Node *next;
      * }
+     *
      * @param input [1,2,3,4,5,6,7]
      * @param empty null 标识该方法有三个节点属性
      */
@@ -169,5 +170,22 @@ public class PublicMethod {
             return "";
         }
         return integerTreeToInorderString(root.left) + root.val + " " + integerTreeToInorderString(root.right);
+    }
+
+
+    public String integer2DListToString(List<List<Integer>> input) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (List<Integer> list : input) {
+            sb.append("[");
+            for (Integer i : list) {
+                sb.append(i).append(",");
+            }
+            String str = sb.substring(0, sb.length() - 1);
+            sb = new StringBuilder(str);
+            sb.append("]");
+        }
+        sb.append("]");
+        return sb.toString();
     }
 }
