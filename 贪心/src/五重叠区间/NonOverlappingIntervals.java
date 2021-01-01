@@ -46,8 +46,8 @@ class Solution {
         if (intervals.length == 0) {
             return 0;
         }
-        Arrays.sort(intervals, Comparator.comparingInt(o -> o[0])); // 升序排序
-        int count = 0; // 最多能组成不重叠区间个数
+        Arrays.sort(intervals, Comparator.comparingInt(o -> o[1])); // 升序排序
+        int count = 1; // 最多能组成不重叠区间个数
         int end = intervals[0][1];
         for (int[] interval : intervals) {
             if (interval[0] < end) {
