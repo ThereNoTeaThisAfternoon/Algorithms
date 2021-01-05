@@ -3,6 +3,7 @@ package Array公共方法;
 import java.util.List;
 
 public class PublicMethod {
+
     //Strings -> Array
     //[100,4,200,1,3,2]
     public int[] stringToIntegerArray(String input) {
@@ -83,6 +84,26 @@ public class PublicMethod {
             output.append(sb.substring(0, sb.length() - 1)).append("], ");
         }
         return output.substring(0, output.length() - 2) + "]";
+    }
+
+    /**
+     * 将一个整型二维List转换成格式化的String
+     *
+     * @param input List<List<Integer>>
+     * @return String
+     */
+    public static String integer2DListToString(List<List<Integer>> input) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (List<Integer> list : input) {
+            StringBuilder sb1 = new StringBuilder();
+            sb1.append("[");
+            for (Integer i : list) {
+                sb1.append(i).append(",");
+            }
+            sb.append(sb1.substring(0, sb1.length() - 1)).append("],");
+        }
+        return sb.substring(0, sb.length() - 1) + "]";
     }
 }
 
