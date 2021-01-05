@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -61,5 +62,25 @@ class Solution {
             }
         }
         return lists;
+    }
+}
+
+class SolutionCopy {
+
+    public List<List<Integer>> largeGroupPositions(String s) {
+        List<List<Integer>> ret = new ArrayList<>();
+        int n = s.length();
+        int num = 1;
+        for (int i = 0; i < n; i++) {
+            if (i == n - 1 || s.charAt(i) != s.charAt(i + 1)) {
+                if (num >= 3) {
+                    ret.add(Arrays.asList(i - num + 1, i));
+                }
+                num = 1;
+            } else {
+                num++;
+            }
+        }
+        return ret;
     }
 }
