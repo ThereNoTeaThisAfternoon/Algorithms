@@ -1,13 +1,10 @@
 package Math公共方法;
 
 /**
- * FileName:
- * 类的详细说明
- *
  * @author &#x8c2f;&#x535a;
  * @version 1.00
  * @date 2021.1.17 - 上午 9:19
- * @label
+ * @label staticMethod
  */
 public class PublicMethod {
 
