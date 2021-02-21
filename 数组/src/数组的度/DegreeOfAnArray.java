@@ -20,7 +20,7 @@ import java.util.Map;
  * @author &#x8c2f;&#x535a;
  * @version 1.00
  * @date 2021.2.21 - 上午 9:36
- * @label
+ * @label Array
  */
 public class DegreeOfAnArray {
     public static void main(String[] args) throws IOException {
