@@ -24,7 +24,7 @@ import java.io.InputStreamReader;
  * @author &#x8c2f;&#x535a;
  * @version 1.00
  * @date 2021.2.22 - 下午 9:54
- * @label
+ * @label Array
  */
 public class ToeplitzMatrix {
     public static void main(String[] args) throws IOException {
