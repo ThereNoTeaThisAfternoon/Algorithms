@@ -24,18 +24,47 @@ public class PublicMethod {
         return output;
     }
 
-    //String -> IntegerArray
-    public int[][] stringTo2DIntegerArray(String input) {
-        char[][] ans = stringToCharacterArray(input);
-        int row = ans.length;
-        int col = ans[ans.length - 1].length;
-        int[][] out = new int[row][col];
-        for (int i = 0; i < row; ++i) {
-            for (int j = 0; j < col; ++j) {
-                out[i][j] = ans[i][j] - '0';
+    /**
+     * String:[[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]] -> int[][]
+     */
+    public static int[][] stringTo2DIntegerArray(String input) {
+        input = input.trim(); // 去除两旁多余空格
+        input = input.substring(1, input.length() - 1); // 去除两旁括号
+        if ("".equals(input)) {
+            return new int[0][];
+        }
+        // 获取行数、列数
+        int rows = 0, cols = 1;
+        boolean SWITCH = true;
+        for (char word : input.toCharArray()) {
+            if (SWITCH && word == ',') {
+                cols++;
+            } else if (word == ']') {
+                SWITCH = false;
+                rows++;
             }
         }
-        return out;
+        int[][] output = new int[rows][cols];
+        int index = 0;
+        for (int[] row : output) {
+            for (int i = 0; i < row.length; i++) {
+                StringBuilder sb = new StringBuilder();
+                // 跳过非数字字符
+                while (index < input.length() && !Character.isDigit(input.charAt(index))) {
+                    index++;
+                }
+                // 为负数加上'-'
+                if (input.charAt(index - 1) == '-') {
+                    sb.append('-');
+                }
+                // 获取数字 10 111
+                while (index < input.length() && Character.isDigit(input.charAt(index))) {
+                    sb.append(input.charAt(index++));
+                }
+                row[i] = Integer.parseInt(sb.toString());
+            }
+        }
+        return output;
     }
 
     //String -> CharacterArray
