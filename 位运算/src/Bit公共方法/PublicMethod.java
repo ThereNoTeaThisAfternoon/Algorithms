@@ -15,4 +15,12 @@ public class PublicMethod {
         return output;
     }
 
+    // "11111111111111111111111111111101" -> Integer
+    public static int parseInt(String input) {
+        int output = 0;
+        for (char ch : input.toCharArray()) {
+            output = output << 1 + (ch == '1' ? 1 : 0);
+        }
+        return output;
+    }
 }
